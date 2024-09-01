@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
