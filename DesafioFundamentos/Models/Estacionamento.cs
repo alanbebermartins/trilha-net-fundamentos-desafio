@@ -16,11 +16,11 @@ namespace DesafioFundamentos.Models
         {
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             // *IMPLEMENTADO*
-            string placa = Console.ReadLine();
+            string placa = Console.ReadLine().ToUpper();
             if (string.IsNullOrWhiteSpace(placa)) {
                 Console.WriteLine("Campo Obrigatório! Favor digite uma placa.");
             } else {
-                veiculos.Add(placa.ToUpper());
+                veiculos.Add(placa);
             }
         }
 
