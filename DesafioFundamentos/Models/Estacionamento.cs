@@ -16,8 +16,12 @@ namespace DesafioFundamentos.Models
         {
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             // *IMPLEMENTADO*
-            string placaDoVeiculo = Console.ReadLine();
-            veiculos.Add(placaDoVeiculo);
+            string placa = Console.ReadLine();
+            if (placa == "") {
+                Console.WriteLine("Campo Obrigatório! Favor digite uma placa.");
+            } else {
+                veiculos.Add(placa);
+            }
         }
 
         public void RemoverVeiculo()
@@ -56,8 +60,7 @@ namespace DesafioFundamentos.Models
             if (veiculos.Any())
             {
                 Console.WriteLine("Os veículos estacionados são:");
-                // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
-                // *IMPLEMENTE AQUI*
+                // *IMPLEMENTADO*
                 foreach(var veiculo in veiculos) {
                     Console.WriteLine($"Placa {veiculo}");
                 }
