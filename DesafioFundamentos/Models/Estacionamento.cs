@@ -13,18 +13,6 @@ namespace DesafioFundamentos.Models
             this.precoPorHora = precoPorHora;
         }
 
-        // public void AdicionarVeiculo()
-        // {
-        //     Console.WriteLine("Digite a placa do veículo para estacionar:");
-        //     // *IMPLEMENTADO*
-        //     string placa = Console.ReadLine();
-        //     if (string.IsNullOrWhiteSpace(placa)) {
-        //         Console.WriteLine("Campo Obrigatório! Favor digite uma placa.");
-        //     } else {
-        //         veiculos.Add(placa);
-        //     }
-        // }
-
         public void AdicionarVeiculo() {
             Console.WriteLine("Digite a placa do veículo para estacionar:");
 
@@ -52,34 +40,6 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Veículo adicionado com sucesso!");
             }
         }
-
-        // public void RemoverVeiculo()
-        // {
-        //     Console.WriteLine("Digite a placa do veículo para remover:");
-
-        //     // *IMPLEMENTADO*
-        //     string placa = Console.ReadLine();
-
-        //     // Verifica se o veículo existe
-        //     if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
-        //     {
-        //         Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
-             
-        //         // *IMPLEMENTADO*
-        //         decimal valorTotal = 0M; 
-        //         string dados = Console.ReadLine();                              
-        //         int horas = Convert.ToInt32(dados);
-        //         valorTotal = precoInicial + (precoPorHora * horas);
-
-        //         // *IMPLEMENTADO*
-        //         veiculos.Remove(placa); 
-        //         Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal:C}");
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
-        //     }
-        // }
 
         public void RemoverVeiculo()
         {
