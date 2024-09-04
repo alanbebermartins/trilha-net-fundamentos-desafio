@@ -53,31 +53,80 @@ namespace DesafioFundamentos.Models
             }
         }
 
+        // public void RemoverVeiculo()
+        // {
+        //     Console.WriteLine("Digite a placa do veículo para remover:");
+
+        //     // *IMPLEMENTADO*
+        //     string placa = Console.ReadLine();
+
+        //     // Verifica se o veículo existe
+        //     if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+        //     {
+        //         Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
+             
+        //         // *IMPLEMENTADO*
+        //         decimal valorTotal = 0M; 
+        //         string dados = Console.ReadLine();                              
+        //         int horas = Convert.ToInt32(dados);
+        //         valorTotal = precoInicial + (precoPorHora * horas);
+
+        //         // *IMPLEMENTADO*
+        //         veiculos.Remove(placa); 
+        //         Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal:C}");
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
+        //     }
+        // }
+
         public void RemoverVeiculo()
         {
             Console.WriteLine("Digite a placa do veículo para remover:");
 
-            // *IMPLEMENTADO*
+            // Lê a entrada do usuário (a placa do veículo) e armazena na variável 'placa'.
             string placa = Console.ReadLine();
 
+            // Define a regex para validar o formato da placa.
+            string pattern = @"^[A-Z]{3}-[0-9]{4}$";
+            Regex regex = new Regex(pattern);
+
+            // Verifica se a placa está vazia ou contém apenas espaços em branco.
+            if (string.IsNullOrWhiteSpace(placa))
+            {
+                Console.WriteLine("Campo Obrigatório! Favor digite uma placa.");
+            }
+            // Verifica se a placa corresponde ao padrão definido.
+            else if (!regex.IsMatch(placa))
+            {
+                Console.WriteLine("Formato de placa inválido! Favor digite no formato ABC-1234.");
+            }
             // Verifica se o veículo existe
-            if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+            else if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
-             
-                // *IMPLEMENTADO*
-                decimal valorTotal = 0M; 
-                string dados = Console.ReadLine();                              
-                int horas = Convert.ToInt32(dados);
-                valorTotal = precoInicial + (precoPorHora * horas);
 
-                // *IMPLEMENTADO*
-                veiculos.Remove(placa); 
-                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal:C}");
+                // Tenta converter a entrada de horas para inteiro
+                decimal valorTotal = 0M;
+                string dados = Console.ReadLine();
+
+                if (int.TryParse(dados, out int horas))
+                {
+                    valorTotal = precoInicial + (precoPorHora * horas);
+
+                    // Remove a placa da coleção de veículos.
+                    veiculos.Remove(placa);
+                    Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal:C}");
+                }
+                else
+                {
+                    Console.WriteLine("Quantidade de horas inválida. Por favor, insira um número inteiro.");
+                }
             }
             else
             {
-                Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
+                Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente.");
             }
         }
 
